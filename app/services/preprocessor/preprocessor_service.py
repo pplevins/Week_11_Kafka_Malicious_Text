@@ -14,9 +14,14 @@ class PreprocessorService:
 
     def get_service(self):
         for message in self.consumer.get_consumed_messages():
+            print(message.value)
             new_document = message.value
             new_document['clean_text'] = PreprocessorManager(new_document['text']).process()
             self.producer.publish_massage(self.topic_conversion[message.topic], new_document)
+
+
+if __name__ == '__main__':
+    PreprocessorService().get_service()
 
 
 

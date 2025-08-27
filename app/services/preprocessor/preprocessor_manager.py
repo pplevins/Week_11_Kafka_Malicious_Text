@@ -3,4 +3,4 @@ class PreprocessorManager:
         self._text = text
 
     def process(self):
-        pass
+        return 'preprcessing'

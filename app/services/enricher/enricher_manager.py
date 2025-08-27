@@ -3,4 +3,4 @@ class EnricherManager:
         self.document = document
 
     def process(self):
-        pass
+        return 'Enricher manager'

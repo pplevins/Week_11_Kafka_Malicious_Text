@@ -11,6 +11,7 @@ class EnricherService:
 
     def get_service(self):
         for message in self.consumer.get_consumed_messages():
+            print(message.value)
             new_document = EnricherManager(message.value).process()
             self.producer.publish_massage(self.topic_conversion[message.topic], new_document)
 
