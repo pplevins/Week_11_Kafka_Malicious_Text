@@ -16,7 +16,7 @@ class PreprocessorService:
         for message in self.consumer.get_consumed_messages():
             print(message.value)
             new_document = message.value
-            new_document['clean_text'] = PreprocessorManager(new_document['text']).process()
+            new_document['clean_text'] = PreprocessorManager(new_document['original_text']).process()
             self.producer.publish_massage(self.topic_conversion[message.topic], new_document)
 
 
