@@ -11,14 +11,9 @@ class Consumer:
         self.bootstrap_servers = bootstrap_servers
 
     def get_consumed_messages(self):
-        consumer = KafkaConsumer(self.topic,
+        return KafkaConsumer(self.topic,
                                  value_deserializer=lambda m: json.loads(m.decode('ascii')),
-                                 bootstrap_servers=self.bootstrap_servers,
-                                 consumer_timeout_ms=10000
+                                 bootstrap_servers=self.bootstrap_servers
                                  )
-        messages = []
-        for msg in consumer:
-            print(msg)
-            messages.append(msg.value)
-        # consumer.close()
-        return messages
+
+
