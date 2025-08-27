@@ -4,10 +4,10 @@ from preprocessor_manager import PreprocessorManager
 
 class PreprocessorService:
     def __init__(self):
-        self.topics = ['preprocessed_tweets_antisemitic', 'preprocessed_tweets_not_antisemitic']
+        self.topics = ['raw_tweets_antisemitic', 'raw_tweets_not_antisemitic']
         self.topic_conversion =\
-            {'raw_tweets_antisemitic': self.topics[0],
-             'raw_tweets_not_antisemitic': self.topics[1]}
+            {self.topics[0]:'preprocessed_tweets_antisemitic',
+             self.topics[1]:'preprocessed_tweets_not_antisemitic'}
         self.consumer = Consumer(self.topics)
         self.producer = Producer()
 

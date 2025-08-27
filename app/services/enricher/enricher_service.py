@@ -4,8 +4,8 @@ from enricher_manager import EnricherManager
 
 class EnricherService:
     def __init__(self):
-        self.topics = ('enriched_preprocessed_tweets_antisemitic','enriched_preprocessed_tweets_not_antisemitic')
-        self.topic_conversion = {'preprocessed_tweets_antisemitic':self.topics[0],'preprocessed_tweets_not_antisemitic': self.topics[1]}
+        self.topics = ('preprocessed_tweets_antisemitic','preprocessed_tweets_not_antisemitic')
+        self.topic_conversion = {self.topics[0]:'enriched_preprocessed_tweets_antisemitic',self.topics[1]:'enriched_preprocessed_tweets_not_antisemitic'}
         self.consumer = Consumer(self.topics)
         self.producer = Producer()
 
