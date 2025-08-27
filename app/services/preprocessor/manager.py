@@ -1,0 +1,6 @@
+class Manager:
+    def __init__(self, text):
+        self._text = text
+
+    def process(self):
+        pass
