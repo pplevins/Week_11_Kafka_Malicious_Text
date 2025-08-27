@@ -1,0 +1,19 @@
+import json
+from kafka import KafkaProducer
+
+
+class Producer:
+    def __init__(self, bootstrap_servers=None):
+        self.bootstrap_servers = bootstrap_servers
+        if bootstrap_servers is None:
+            self.bootstrap_servers = ['localhost:9092']
+        self._client = KafkaProducer(bootstrap_servers=self.bootstrap_servers,
+                                     value_serializer=lambda x:
+                                     json.dumps(x).encode('utf-8'))
+
+    def publish_massage(self, topic, msg):
+        # self._client = KafkaProducer(bootstrap_servers=self.bootstrap_servers,
+        #                              value_serializer=lambda x:
+        #                              json.dumps(x).encode('utf-8'))
+        self._client.send(topic, msg)
+        self._client.flush()
