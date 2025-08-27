@@ -20,11 +20,7 @@ class TweetsDal:
     async def list_skip_limit(self, skip_num, limit_num) -> list:
         """List tweets in the database with skip and limit."""
         return await (self.collection.find()
-                      .sort([("CreateDate", ASCENDING),("_id", ASCENDING)])
+                      .sort([("CreateDate", ASCENDING), ("_id", ASCENDING)])
                       .skip(skip_num)
                       .limit(limit_num)
                       .to_list())
-
-    def close_connection(self, collection):
-        """Close a database connection."""
-        self.db.close()

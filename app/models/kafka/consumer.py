@@ -14,7 +14,6 @@ class Consumer:
         consumer = KafkaConsumer(self.topic,
                                  value_deserializer=lambda m: json.loads(m.decode('ascii')),
                                  bootstrap_servers=self.bootstrap_servers,
-                                 group_id='my-group',
                                  consumer_timeout_ms=10000
                                  )
         messages = []

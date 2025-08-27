@@ -30,10 +30,3 @@ class Database:
         if cls._db is None:
             cls.get_client()
         return cls._db.get_collection(collection_name)
-
-    @classmethod
-    def close(cls):
-        """Close the database connection."""
-        if cls._client is not None:
-            cls._client.close()
-            cls._client = None
