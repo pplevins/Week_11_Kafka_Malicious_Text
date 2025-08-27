@@ -25,8 +25,8 @@ class Database:
         return cls._client
 
     @classmethod
-    def get_topic_collection(cls, topic):
-        """A class method that returns a singleton topic database collection."""
+    def get_db_collection(cls, collection_name):
+        """A class method that returns a singleton database collection."""
         if cls._db is None:
             cls.get_client()
-        return cls._db.get_collection(topic)
+        return cls._db.get_collection(collection_name)
