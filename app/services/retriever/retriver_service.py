@@ -11,7 +11,6 @@ class RetrieverService:
     async def retrieve_tweets(self, skip, limit):
         self._dal.open_connection("tweets")
         tweets = await self._dal.list_skip_limit(skip, limit)
-        # await self._dal.close_connection()
         return tweets
 
     def publish_tweets(self, tweets):
