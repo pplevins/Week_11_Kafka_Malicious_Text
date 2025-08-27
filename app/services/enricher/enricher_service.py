@@ -1,5 +1,5 @@
 from app.models import Consumer, Producer
-from enrichermanager import EnricherManager
+from enricher_manager import EnricherManager
 
 
 class EnricherService:
