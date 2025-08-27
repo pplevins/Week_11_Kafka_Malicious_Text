@@ -16,7 +16,6 @@ class Service:
         for message in self.consumer.get_consumed_messages():
             new_document = message.value
             new_document['clean_text'] = Manager(new_document['text']).process()
-            new_document['original_text'] = new_document.pop['text']
             self.producer.publish_massage(self.topic_conversion[message.topic], new_document)
 
 
