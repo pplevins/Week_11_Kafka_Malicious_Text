@@ -20,6 +20,7 @@ class TextCleaner:
         nltk.download('wordnet', download_dir=nltk_dir, quiet=True)
         nltk.download('omw-1.4', download_dir=nltk_dir, quiet=True)
         nltk.download('averaged_perceptron_tagger_eng', download_dir=nltk_dir, quiet=True)
+        self.lemmatizer = WordNetLemmatizer()
 
     def lower_text(self, text):
         """Lowers text."""
@@ -41,7 +42,6 @@ class TextCleaner:
 
     def lemmatize(self, text):
         """Lemmatizes text."""
-        lemmatizer = WordNetLemmatizer()
         tokens = word_tokenize(text)
         tagged_tokens = pos_tag(tokens)
         lemmatized_sentence = []
@@ -49,7 +49,7 @@ class TextCleaner:
             if word.lower() == 'are' or word.lower() in ['is', 'am']:
                 lemmatized_sentence.append(word)
             else:
-                lemmatized_sentence.append(lemmatizer.lemmatize(word, self._get_wordnet_pos(tag)))
+                lemmatized_sentence.append(self.lemmatizer.lemmatize(word, self._get_wordnet_pos(tag)))
 
         return ' '.join(lemmatized_sentence)
 
