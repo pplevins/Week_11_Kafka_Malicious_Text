@@ -11,7 +11,7 @@ class Consumer:
         self.bootstrap_servers = bootstrap_servers
 
     def get_consumed_messages(self):
-        return KafkaConsumer(self.topic,
+        return KafkaConsumer(*self.topic,
                                  value_deserializer=lambda m: json.loads(m.decode('ascii')),
                                  bootstrap_servers=self.bootstrap_servers
                                  )
