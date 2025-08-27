@@ -16,7 +16,7 @@ class RetrieverService:
     def publish_tweets(self, tweets):
         for tweet in tweets:
             massage = {
-                "id": str(tweet["_id"]),
+                "id": tweet["_id"],
                 "CreateDate": tweet["CreateDate"],
                 "original_text": tweet["text"],
                 "Antisemitic": tweet["Antisemitic"]

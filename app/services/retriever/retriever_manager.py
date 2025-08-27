@@ -13,5 +13,5 @@ class RetrieverManager:
         while True:
             tweets = await self.retriever_service.retrieve_tweets(skip=skip, limit=limit)
             self.retriever_service.publish_tweets(tweets)
-            skip += limit
+            skip += len(tweets)
             sleep(60)
