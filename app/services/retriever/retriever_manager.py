@@ -1,6 +1,6 @@
 from time import sleep
 
-from app.services.retriever import RetrieverService
+from retriever import RetrieverService
 
 
 class RetrieverManager:

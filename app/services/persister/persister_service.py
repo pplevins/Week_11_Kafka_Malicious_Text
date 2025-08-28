@@ -1,5 +1,3 @@
-import asyncio
-
 from app.core import Database
 from app.dal import TweetsDal
 from app.models import Consumer
@@ -16,7 +14,3 @@ class PersisterService:
         for message in self.consumer.get_consumed_messages():
             print(message.value)
             await self.dal.insert_document(self.topic_conversion[message.topic], message.value)
-
-
-if __name__ == '__main__':
-    asyncio.run(PersisterService().insert_to_db())

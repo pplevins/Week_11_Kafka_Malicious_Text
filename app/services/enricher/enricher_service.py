@@ -1,5 +1,3 @@
-
-
 from app.models import Consumer, Producer
 from enricher_manager import EnricherManager
 
@@ -17,8 +15,3 @@ class EnricherService:
             print(message.value)
             new_document = EnricherManager(message.value).get_document()
             self.producer.publish_massage(self.topic_conversion[message.topic], new_document)
-
-
-
-if __name__ == '__main__':
-    EnricherService().get_service()
