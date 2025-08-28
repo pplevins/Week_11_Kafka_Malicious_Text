@@ -12,3 +12,6 @@ docker run --name mongodb -p 27017:27017 -d mongodb/mongodb-community-server
 
 @REM getting all the requirements
 pip freeze > requirements.txt
+
+@REM composing the service stack
+docker compose -f compose.yaml up -d
