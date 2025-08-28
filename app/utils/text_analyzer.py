@@ -29,6 +29,6 @@ class TextAnalyzer:
                     self.text_cleaner.clean_punctuation(weapon)
                 )
             )
-            if weapon in tweet_text:
+            if f' {weapon} ' in tweet_text:
                 weapons.append(weapon)
         return weapons if len(weapons) > 0 else None
