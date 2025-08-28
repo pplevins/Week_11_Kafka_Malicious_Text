@@ -3,6 +3,7 @@ from preprocessor_manager import PreprocessorManager
 
 
 class PreprocessorService:
+
     def __init__(self):
         self.topics = ['raw_tweets_antisemitic', 'raw_tweets_not_antisemitic']
         self.topic_conversion =\
