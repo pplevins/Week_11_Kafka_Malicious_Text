@@ -1,4 +1,6 @@
 import os
+import re
+from datetime import datetime
 
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
@@ -17,12 +19,12 @@ class TextAnalyzer:
         self.weapons_list = WeaponsFetcher.fetch_weapons_list()
         self.text_cleaner = TextCleaner()
 
-    def _calculate_text_sentiment(self, tweet_text: str) -> str:
+    def calculate_text_sentiment(self, tweet_text: str) -> str:
         compound = self.sentiment_analyzer.polarity_scores(tweet_text).get('compound')
         return "positive" if compound > 0.5 \
             else "negative" if compound < -0.5 else "neutral"
 
-    def _find_weapons(self, tweet_text: str) -> str | None:
+    def find_weapons(self, tweet_text: str) -> str | None:
         weapons = []
         for weapon in self.weapons_list:
             weapon = self.text_cleaner.remove_duplicate_whitespaces(
@@ -33,3 +35,8 @@ class TextAnalyzer:
             if f" {weapon} " in tweet_text:
                 weapons.append(weapon)
         return weapons if len(weapons) > 0 else None
+
+    def find_latest_date(self, tweet_text: str) -> datetime | None:
+        dates_str = re.findall(r'\d{2}-\d{2}-\d{4}', tweet_text)
+        dates = [datetime.strptime(date_str, '%d-%m-%Y').date() for date_str in dates_str]
+        return max(dates) if dates else None
