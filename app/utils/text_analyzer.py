@@ -37,6 +37,6 @@ class TextAnalyzer:
         return weapons if len(weapons) > 0 else None
 
     def find_latest_date(self, tweet_text: str) -> datetime | None:
-        dates_str = re.findall(r'\d{2}-\d{2}-\d{4}', tweet_text)
+        dates_str = re.findall(r'\d{4}-\d{2}-\d{2}', tweet_text)
         dates = [datetime.strptime(date_str, '%d-%m-%Y').date() for date_str in dates_str]
         return max(dates) if dates else None
