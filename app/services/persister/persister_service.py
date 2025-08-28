@@ -8,3 +8,4 @@ class PersisterService:
         self.consumer = Consumer(self.topics)
 
 
+
