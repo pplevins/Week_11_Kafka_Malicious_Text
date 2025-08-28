@@ -1,4 +1,4 @@
-from app.utils import TextCleaner
+from app.utils.text_cleaner import TextCleaner
 
 
 class PreprocessorManager:
