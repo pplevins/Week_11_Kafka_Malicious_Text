@@ -6,3 +6,6 @@ docker exec -it broker /bin/bash
 cd /opt/kafka/bin
 ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic raw_tweets_not_antisemitic --from-beginning
 ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic raw_tweets_antisemitic --from-beginning
+
+@REM Running local MongoDB for persister and data retriever
+docker run --name mongodb -p 27017:27017 -d mongodb/mongodb-community-server
