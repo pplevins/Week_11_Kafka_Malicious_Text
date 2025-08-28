@@ -1,6 +1,6 @@
-from core import Database
-from dal import TweetsDal
-from models import Producer
+from app.core import Database
+from app.dal import TweetsDal
+from app.models import Producer
 
 
 class RetrieverService:
@@ -9,16 +9,16 @@ class RetrieverService:
         self._dal = TweetsDal(Database())
 
     async def retrieve_tweets(self, skip, limit):
-        tweets = await self._dal.list_skip_limit('tweets',skip, limit)
+        tweets = await self._dal.list_skip_limit('tweets', skip, limit)
         return tweets
 
     def publish_tweets(self, tweets):
         for tweet in tweets:
             massage = {
-                "id": tweet["_id"],
-                "CreateDate": tweet["CreateDate"],
-                "original_text": tweet["text"],
-                "Antisemitic": tweet["Antisemitic"]
+                "source_id": tweet["_id"],
+                "create_date": tweet["CreateDate"],
+                "text": tweet["text"],
+                "antisemitic": tweet["Antisemitic"]
             }
             topic = "raw_tweets_antisemitic" if tweet["Antisemitic"] \
                 else "raw_tweets_not_antisemitic"

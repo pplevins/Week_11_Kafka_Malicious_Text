@@ -29,7 +29,8 @@ class TextCleaner:
     def clean_punctuation(self, text):
         """Cleans all punctuation and special characters."""
         # TODO: can also be done with: re.sub(r'[^\w\s]+', '', text)
-        return text.translate(str.maketrans('', '', string.punctuation))
+        # return text.translate(str.maketrans('', '', string.punctuation))
+        return re.sub(r'[^\w\s]+', '', text)
 
     def remove_stopwords(self, text):
         stop_words = set(stopwords.words('english'))
