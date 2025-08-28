@@ -9,8 +9,7 @@ class RetrieverService:
         self._dal = TweetsDal(Database())
 
     async def retrieve_tweets(self, skip, limit):
-        self._dal.open_connection("tweets")
-        tweets = await self._dal.list_skip_limit(skip, limit)
+        tweets = await self._dal.list_skip_limit('tweets',skip, limit)
         return tweets
 
     def publish_tweets(self, tweets):
