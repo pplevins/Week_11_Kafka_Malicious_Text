@@ -27,3 +27,8 @@ docker tag malicious-text-persister:latest pplevins/malicious-text-persister:lat
 docker push pplevins/malicious-text-persister:latest
 docker tag malicious-text-data-retrieval:latest pplevins/malicious-text-data-retrieval:latest
 docker push pplevins/malicious-text-data-retrieval:latest
+
+@REM ---- OpenShift ----
+oc login --token=<my-api-token> --server=https://api.rm3.7wse.p1.openshiftapps.com:6443
+oc apply -f iran-tweets-secret.yaml
+oc apply -f retrieval-tweets-secret.yaml
