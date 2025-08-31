@@ -1,6 +1,5 @@
 import os
 import re
-import string
 
 import nltk
 from nltk import word_tokenize, WordNetLemmatizer, pos_tag

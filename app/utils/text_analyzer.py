@@ -5,8 +5,8 @@ from datetime import datetime
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 
-from app.utils.weapons_fetcher import WeaponsFetcher
-from app.utils.text_cleaner import TextCleaner
+from .weapons_fetcher import WeaponsFetcher
+from .text_cleaner import TextCleaner
 
 
 class TextAnalyzer:
@@ -38,5 +38,5 @@ class TextAnalyzer:
 
     def find_latest_date(self, tweet_text: str) -> datetime | None:
         dates_str = re.findall(r'\d{4}-\d{2}-\d{2}', tweet_text)
-        dates = [datetime.strptime(date_str, '%d-%m-%Y').date() for date_str in dates_str]
+        dates = [datetime.strptime(date_str, '%Y-%m-%d').date() for date_str in dates_str]
         return max(dates) if dates else None
