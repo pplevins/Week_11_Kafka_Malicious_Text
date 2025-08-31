@@ -1,5 +1,5 @@
-from core import Database
-from dal import TweetsDal
+from app.core import Database
+from app.dal import TweetsDal
 
 
 class DataRetrievalService:

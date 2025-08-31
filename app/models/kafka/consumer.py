@@ -6,7 +6,7 @@ from kafka import KafkaConsumer
 class Consumer:
     def __init__(self, topic, bootstrap_servers=None):
         if bootstrap_servers is None:
-            bootstrap_servers = ['kafka:9093']
+            bootstrap_servers = ['localhost:9092']
         self.topic = topic
         self.bootstrap_servers = bootstrap_servers
 

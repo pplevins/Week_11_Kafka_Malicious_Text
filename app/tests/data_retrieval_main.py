@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 
-from api.data_retrieval_api import router as tweets_router
+from app.api.data_retrieval_api import router as tweets_router
 
 app = FastAPI(
     title="Tweets Database API",

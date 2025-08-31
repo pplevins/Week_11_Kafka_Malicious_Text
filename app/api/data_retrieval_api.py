@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from data_retrieval.data_retrieval_service import DataRetrievalService
+from app.services.data_retrieval.data_retrieval_service import DataRetrievalService
 
 router = APIRouter(prefix="/tweets", tags=["tweets"])
 retrieval_service = DataRetrievalService()
