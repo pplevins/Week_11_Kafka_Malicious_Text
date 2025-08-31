@@ -1,6 +1,6 @@
-from app.core import Database
-from app.dal import TweetsDal
-from app.models import Consumer
+from core import Database
+from dal import TweetsDal
+from models import Consumer
 
 
 class PersisterService:

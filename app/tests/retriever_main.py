@@ -1,6 +1,6 @@
 import asyncio
 
-from app.services import RetrieverManager
+from retriever import RetrieverManager
 
 
 def main():

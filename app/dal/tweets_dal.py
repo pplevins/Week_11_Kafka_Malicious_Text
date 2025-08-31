@@ -1,6 +1,6 @@
 from pymongo import ASCENDING
 
-from app.core import Database
+from core import Database
 
 
 class TweetsDal:

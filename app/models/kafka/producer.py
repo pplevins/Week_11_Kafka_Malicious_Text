@@ -6,7 +6,7 @@ class Producer:
     def __init__(self, bootstrap_servers=None):
         self.bootstrap_servers = bootstrap_servers
         if bootstrap_servers is None:
-            self.bootstrap_servers = ['localhost:9092']
+            self.bootstrap_servers = ['kafka:9093']
         self._client = KafkaProducer(bootstrap_servers=self.bootstrap_servers,
                                      value_serializer=lambda x:
                                      json.dumps(x, default=str).encode('utf-8'))

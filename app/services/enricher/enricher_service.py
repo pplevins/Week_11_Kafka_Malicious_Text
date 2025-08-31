@@ -1,4 +1,4 @@
-from app.models import Consumer, Producer
+from models import Consumer, Producer
 from .enricher_manager import EnricherManager
 
 

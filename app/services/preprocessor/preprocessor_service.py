@@ -1,4 +1,4 @@
-from app.models import Producer, Consumer
+from models import Producer, Consumer
 from .preprocessor_manager import PreprocessorManager
 
 

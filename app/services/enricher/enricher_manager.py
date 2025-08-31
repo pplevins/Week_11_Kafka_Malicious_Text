@@ -1,4 +1,4 @@
-from app.utils import TextAnalyzer
+from utils import TextAnalyzer
 
 
 class EnricherManager:
