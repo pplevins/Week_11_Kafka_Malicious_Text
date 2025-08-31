@@ -15,3 +15,15 @@ pip freeze > requirements.txt
 
 @REM composing the service stack
 docker compose -f compose.yaml up -d
+
+@REM Building and pushing images to DockerHub
+docker tag malicious-text-retriever:latest pplevins/malicious-text-retriever:latest
+docker push pplevins/malicious-text-retriever:latest
+docker tag malicious-text-preprocessor:latest pplevins/malicious-text-preprocessor:latest
+docker push pplevins/malicious-text-preprocessor:latest
+docker tag malicious-text-enricher:latest pplevins/malicious-text-enricher:latest
+docker push pplevins/malicious-text-enricher:latest
+docker tag malicious-text-persister:latest pplevins/malicious-text-persister:latest
+docker push pplevins/malicious-text-persister:latest
+docker tag malicious-text-data-retrieval:latest pplevins/malicious-text-data-retrieval:latest
+docker push pplevins/malicious-text-data-retrieval:latest
